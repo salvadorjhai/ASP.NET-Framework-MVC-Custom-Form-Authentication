@@ -1,0 +1,43 @@
+﻿@model List<ASPProject.Models.Student>
+
+@{
+    Console.WriteLine("");
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <table id="tblStudent" class="table table-bordered table-responsive">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>firstname</th>
+                        <th>lastname</th>
+                        <th>fullname</th>
+                        <th>dob</th>
+                        <th>age</th>
+                        @*<th>@Html.DisplayNameFor(x => x.firstname)</th>
+                            <th>@Html.DisplayNameFor(x => x.lastname)</th>
+                            <th>@Html.DisplayNameFor(x => x.midlename)</th>
+                            <th>@Html.DisplayNameFor(x => x.fullname)</th>
+                            <th>@Html.DisplayNameFor(x => x.dob)</th>
+                            <th>@Html.DisplayNameFor(x => x.age)</th>*@
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.id</td>
+                            <td>@item.firstname</td>
+                            <td>@item.lastname</td>
+                            <td>@item.fullname</td>
+                            <td>@(item.dob.HasValue ? item.dob.Value.ToShortDateString() : "")</td>
+                            <td>@item.age</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

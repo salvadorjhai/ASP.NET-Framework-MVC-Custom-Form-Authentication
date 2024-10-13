@@ -1,0 +1,78 @@
+﻿@model ASPProject.Models.Student
+
+@{
+    ViewBag.Title = "Registration";
+}
+
+<h2>Registration</h2>
+
+<form>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                @Html.LabelFor(m => m.firstname, new { @class = "form-label" })
+                @Html.EditorFor(m => m.firstname, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.firstname)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                @Html.LabelFor(m => m.lastname, new { @class = "form-label" })
+                @Html.EditorFor(m => m.lastname, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.lastname)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                @Html.LabelFor(m => m.username, new { @class = "form-label" })
+                @Html.EditorFor(m => m.username, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.username)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                @Html.LabelFor(m => m.password, new { @class = "form-label" })
+                @Html.EditorFor(m => m.password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.password)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                @Html.LabelFor(m => m.dob, new { @class = "form-label" })
+                @Html.EditorFor(m => m.dob, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.dob)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                @Html.LabelFor(m => m.date_enrolled, new { @class = "form-label" })
+                @Html.EditorFor(m => m.date_enrolled, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.date_enrolled)
+            </div>
+        </div>
+
+        @{
+            if (Html.IsAllowed(PermissionProvider.Permission.can_add))
+            {
+                <button type="submit">Submit</button>
+            }
+        }
+
+    </div>
+</form>
+
+@{Html.RenderAction("RegistrationList", "Home");}
+
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            console.log(tblStudent);
+        })
+    </script>
+}
